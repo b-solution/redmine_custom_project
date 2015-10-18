@@ -1,0 +1,20 @@
+<%= form_tag('update') do  %>
+    <% if @cf %>
+        <% if @cf.field_format == 'list' %>
+            <%= select_tag :custom_field, options_for_select(@cf.possible_values.map{|pv| [pv, pv]} ) %>
+        <% end %>
+        <div id="auto_suggest">
+          <%= render partial: 'form' %>
+        </div>
+    <% end %>
+    <%= submit_tag :submit %>
+<% end %>
+
+<script>
+  $(function(){
+      $('#custom_field').on('change', function(){
+          cf = $(this).val();
+          $.getScript('index?cf='+cf)
+      })
+  })
+</script>

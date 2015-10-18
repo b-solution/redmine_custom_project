@@ -1,0 +1,14 @@
+<%
+   cp = Setting.send("plugin_redmine_custom_project")['cp']
+   @cf = CustomField.where(type: 'ProjectCustomField').where(name: cp).first
+%>
+<script>
+    $(function(){
+        $('#project_custom_field_values_<%= @cf.id %>').on('change', function(){
+            value = $(this).val();
+            if(value){
+                $.getScript('/auto_select_suggest/update_project?cf='+value);
+            }
+        })
+    })
+</script>

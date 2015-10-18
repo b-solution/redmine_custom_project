@@ -1,0 +1,15 @@
+$("input[name='project[enabled_module_names][]']").prop('checked', false);
+$("input[name='project[tracker_ids][]']").prop('checked', false);
+$("input[name='project[issue_custom_field_ids][]']").prop('checked', false);
+
+<% @values['enabled_module_names'].each do |v| %>
+  $("input[name='project[enabled_module_names][]'][value=<%= v %>]").prop('checked', true);
+<% end %>
+
+<% @values['tracker_ids'].each do |v| %>
+  $("input[name='project[tracker_ids][]'][value=<%= v %>]").prop('checked', true);
+<% end %>
+
+<% @values['issue_custom_field_ids'].each do |v| %>
+  $("input[name='project[issue_custom_field_ids][]'][value=<%= v %>]").prop('checked', true);
+<% end %>
