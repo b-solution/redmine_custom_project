@@ -12,7 +12,7 @@ Redmine::Plugin.register :redmine_custom_project do
         'value'     => 'Initiative'
     }#, :partial => 'redmine_cp/setting'
 
-  menu :admin_menu, :auto_select_suggest, { :controller => 'auto_select_suggest', :action => 'index' }, :caption => 'Suggest auto select'
+  menu :admin_menu, :auto_select_suggest, { :controller => 'auto_select_suggest', :action => 'index' }, :caption => 'Project types'
 end
 
 Rails.application.config.to_prepare do
